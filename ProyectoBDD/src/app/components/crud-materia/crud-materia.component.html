@@ -1,0 +1,24 @@
+<form [formGroup]="AltaMateria" (ngSubmit)="onSubmit()">
+
+    <div class="form-group">
+        <label for="InputID">ID</label>
+        <input type="text" maxlength="10" class="form-control" id="InputID" placeholder="Ingresa ID" formControlName="id">
+    </div>
+
+    <div class="form-group">
+        <label for="NombreMateria">Nombre</label>
+        <input type="text" class="form-control" id="nombreMateria" placeholder="Ingresa nombre" formControlName="nombre">
+    </div>
+
+    <div class="form-group">
+        <label for="CampoMateria">Campo</label>
+        <input type="text" class="form-control" id="CampoMateria" placeholder="Ingresa campo" formControlName="campo">
+    </div>
+
+    <div class="form-group">
+        <label for="GradoMateria">Grado de la materia</label>
+        <input type="number" max="6" min="1" step="1" id="GradoMateria" class="form-control" formControlName="nivel">
+    </div>
+
+    <button type="submit" class="btn btn-primary mb-2">Ingresar Datos</button>
+</form>
