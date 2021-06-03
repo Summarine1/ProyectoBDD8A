@@ -8,15 +8,9 @@ import { CrudService } from 'src/app/services/crud/crud.service';
 })
 export class ListagruposComponent implements OnInit {
   grupos:any[]=[];
-  constructor(private prof: CrudService) { }
+  constructor() { }
 
   ngOnInit(): void {
-    this.prof.getGrupos().subscribe((data:any[]) => {
-      for(var i = 0; i < data.length; ++i)
-      {
-        this.grupos.push(data[i]);
-      }
-    });
   }
 
 }

@@ -9,15 +9,9 @@ import { CrudService } from 'src/app/services/crud/crud.service';
 })
 export class ListaprofsComponent implements OnInit {
   profesores: any[]=[];
-  constructor(private prof: CrudService) { }
+  constructor() { }
 
   ngOnInit(): void {
-    this.prof.AllProfesores().subscribe((data:any[]) => {
-      for(var i = 0; i < data.length; ++i)
-      {
-        this.profesores.push(data[i]);
-      }
-    });
   }
 
 }

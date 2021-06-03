@@ -44,19 +44,19 @@ export class CrudService {
     return this.http.post('http://localhost:3000/insertarAlumno', {id: id, nombre: nombre, paterno: paterno, materno: materno, sexo: sexo, password: contra, grupo: grupo});
   }
   getProfesor(id:string){
-    return this.http.get(`http://localhost:3000/Profesor/${id}`).pipe(map(val => {return val[0]}));
+    return this.http.get(`http://localhost:3000/Profesor/${id}`).pipe(map(val => {return val}));
   }
   getMateria(id:string){
-    return this.http.get(`http://localhost:3000/Materia/${id}`).pipe(map(val => {return val[0]}));
+    return this.http.get(`http://localhost:3000/Materia/${id}`).pipe(map(val => {return val}));
   }
   getLibro(id:string){
-    return this.http.get(`http://localhost:3000/Libro/${id}`).pipe(map(val => {return val[0]}));
+    return this.http.get(`http://localhost:3000/Libro/${id}`).pipe(map(val => {return val}));
   }
   getAlumno(id:string){
-    return this.http.get(`http://localhost:3000/Alumno2/${id}`).pipe(map(val => {return val[0]}));
+    return this.http.get(`http://localhost:3000/Alumno2/${id}`).pipe(map(val => {return val}));
   }
   getGrupo(id:string){
-    return this.http.get(`http://localhost:3000/Grupo/${id}`).pipe(map(val => {return val[0]}));
+    return this.http.get(`http://localhost:3000/Grupo/${id}`).pipe(map(val => {return val}));
   }
   AllProfesores()
   {

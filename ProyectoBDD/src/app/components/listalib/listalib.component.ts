@@ -11,15 +11,9 @@ export class ListalibComponent implements OnInit {
 
   libros: any[]=[];
 
-  constructor(private cursos: CrudService) { }
+  constructor() { }
 
   ngOnInit(): void {
-    this.cursos.AllLibros().subscribe((data:any[]) => {
-      for(var i = 0; i < data.length; ++i)
-      {
-        this.libros.push(data[i]);
-      }
-    });
   }
 
 }

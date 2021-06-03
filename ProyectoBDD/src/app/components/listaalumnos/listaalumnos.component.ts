@@ -8,15 +8,9 @@ import { CrudService } from 'src/app/services/crud/crud.service';
 })
 export class ListaalumnosComponent implements OnInit {
   alumnos: any[]=[];
-  constructor(private alum: CrudService) { }
+  constructor() { }
 
   ngOnInit(): void {
-    this.alum.AllAlumnos().subscribe((data:any[]) => {
-      for(var i = 0; i < data.length; ++i)
-      {
-        this.alumnos.push(data[i]);
-      }
-    });
   }
 
 }
