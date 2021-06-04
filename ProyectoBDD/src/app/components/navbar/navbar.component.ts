@@ -10,7 +10,7 @@ import { Observable } from 'rxjs';
 export class NavbarComponent implements OnInit {
 
 
-  constructor() { 
+  constructor(private router: Router) { 
   }
 
   ngOnInit(): void {

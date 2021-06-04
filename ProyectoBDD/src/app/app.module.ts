@@ -4,39 +4,37 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { ToastrModule } from 'ngx-toastr';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {RouterModule} from '@angular/router';
 
 //Import Components
 import { AppComponent } from './app.component';
 import { CrudComponent } from './components/crud.component';
-import { CrudAlumnoComponent } from './components/crud-alumno/crud-alumno.component';
-import { CrudGrupoComponent } from './components/crud-grupo/crud-grupo.component';
-import { CrudLibroComponent } from './components/crud-libro/crud-libro.component';
-import { CrudProfesorComponent } from './components/crud-profesor/crud-profesor.component';
-import { ListaalumnosComponent } from './components/listaalumnos/listaalumnos.component';
-import { ListagruposComponent } from './components/listagrupos/listagrupos.component';
-import { ListalibComponent } from './components/listalib/listalib.component';
-import { ListaprofsComponent } from './components/listaprofs/listaprofs.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { ListEmpWindowsComponent } from './components/windows/list-emp-windows/list-emp-windows.component';
+import { UpdateEmpWindowsComponent } from './components/windows/update-emp-windows/update-emp-windows.component';
+import { CreateEmpWindowsComponent } from './components/windows/create-emp-windows/create-emp-windows.component';
+import { CrudEmpWindowsComponent } from './components/windows/crud-emp-windows/crud-emp-windows.component';
+import { CrudWindowsComponent } from './components/crud-windows/crud-windows.component';
+import { EmployeeFormComponent } from './shared/components/employee-form/employee-form.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CrudComponent,
-    CrudAlumnoComponent,
-    CrudGrupoComponent,
-    CrudLibroComponent,
-    CrudProfesorComponent,
-    ListaalumnosComponent,
-    ListagruposComponent,
-    ListalibComponent,
-    ListaprofsComponent,
-    NavbarComponent
+    NavbarComponent,
+    ListEmpWindowsComponent,
+    UpdateEmpWindowsComponent,
+    CreateEmpWindowsComponent,
+    CrudEmpWindowsComponent,
+    CrudWindowsComponent,
+    EmployeeFormComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
     FormsModule,
+    RouterModule,
     ToastrModule.forRoot()
   ],
   providers: [],

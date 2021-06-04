@@ -6,31 +6,29 @@
         <ul class="navbar-nav mr-auto">
 
                 <li class="nav-item active">
-                    <a class="nav-link" href="/admin">Inicio</a> 
+                    <a class="nav-link" [routerLink]="['/']">Inicio</a> 
                 </li>
         
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      Modificar
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLinkWindows" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Windows DB
                     </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="/modmat">Materias</a> 
-                        <a class="dropdown-item" href="/modgrupos">Grupos</a>
-                        <a class="dropdown-item" href="/modalumnos">Alumnos</a>
-                        <a class="dropdown-item" href="/modprofesor">Profesores</a>
-                        <a class="dropdown-item" href="/modlibros">Libros</a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLinkWindows">
+                        <a class="dropdown-item" [routerLink]="['windows/emp']">Employees</a> 
+                        <a class="dropdown-item" href="/">Assign</a>
+                        <a class="dropdown-item" href="/">Projects</a>
+                        <a class="dropdown-item" href="/">Payment</a>
                     </div>
                   </li>
                   <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      Ver
+                      Linux DB
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                      <a class="dropdown-item" href="/listamat">Materias</a> 
-                      <a class="dropdown-item" href="/listagrupos">Grupos</a>
-                      <a class="dropdown-item" href="/listaalumnos">Alumnos</a>
-                      <a class="dropdown-item" href="/listaprofesor">Profesores</a>
-                      <a class="dropdown-item" href="/listalibros">Libros</a>
+                      <a class="dropdown-item" href="/">Employees</a> 
+                      <a class="dropdown-item" href="/">Assign</a>
+                      <a class="dropdown-item" href="/">Projects</a>
+                      <a class="dropdown-item" href="/">Payment</a>
                     </div>
                 </li>
         </ul>
