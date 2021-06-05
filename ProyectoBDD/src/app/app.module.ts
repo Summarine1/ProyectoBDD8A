@@ -30,6 +30,7 @@ import { CrudAssignWindowsComponent } from './components/windows/crud-assign-win
 import { ListAsgWindowsComponent } from './components/windows/crud-assign-windows/list-asg-windows/list-asg-windows.component';
 import { CreateAsgWindowsComponent } from './components/windows/crud-assign-windows/create-asg-windows/create-asg-windows.component';
 import { UpdateAsgWindowsComponent } from './components/windows/crud-assign-windows/update-asg-windows/update-asg-windows.component';
+import { AssignFormComponent } from './shared/components/assign-form/assign-form.component';
 
 @NgModule({
   declarations: [
@@ -56,6 +57,7 @@ import { UpdateAsgWindowsComponent } from './components/windows/crud-assign-wind
     ListAsgWindowsComponent,
     CreateAsgWindowsComponent,
     UpdateAsgWindowsComponent,
+    AssignFormComponent,
   ],
   imports: [
     BrowserModule,

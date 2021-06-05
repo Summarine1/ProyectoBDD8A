@@ -1,1 +1,42 @@
-<p>list-asg-windows works!</p>
+<div class="container">
+    <p class="display-3 offset-md-2">Assignments</p>
+    <div class="col-md-8 offset-md-2">
+        <div class="d-grid gap-2">
+            <button class="btn btn-primary btn-block" (click)="onGoToNew()">Add Assign</button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-8 offset-md-2 mt-3">
+            <div class="input-group">
+                <span class="input-group-text"><i class="bi bi-search"></i></span>
+                <input type="text" placeholder="Search by Title" class="form-control">
+            </div>
+        </div>
+    </div>
+    <div class="table-responsive">
+        <table class="table table-striped table-bordered table-hover mt-5">
+            <thead class="table-head">
+                <tr>
+                    <th>Employee Number</th>
+                    <th>Project Number</th>
+                    <th>Responsability</th>
+                    <th>Duration (Months)</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of [0, 1, 2, 3]">
+                    <th scope="row">1</th>
+                    <th scope="row">2</th>
+                    <td>$Otto</td>
+                    <td>20</td>
+                    <td class="btn-group d-none d-sm-block" role="group">
+                        <button type="button" class="btn btn-warning m-1" (click)="onGoToEdit(item)"><i
+                                class="bi bi-pencil-square"></i></button>
+                        <button type="button" class="btn btn-danger m-1"><i class="bi bi-trash-fill"></i></button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,15 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-create-asg-windows',
-  templateUrl: './create-asg-windows.component.html',
-  styleUrls: ['./create-asg-windows.component.css']
+  template: '<app-assign-form></app-assign-form>',
 })
-export class CreateAsgWindowsComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+export class CreateAsgWindowsComponent{
 }

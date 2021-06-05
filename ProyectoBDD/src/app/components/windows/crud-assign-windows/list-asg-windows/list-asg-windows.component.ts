@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NavigationExtras, Router } from '@angular/router';
 
 @Component({
   selector: 'app-list-asg-windows',
@@ -7,9 +8,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListAsgWindowsComponent implements OnInit {
 
-  constructor() { }
+  navigationExtras: NavigationExtras = {
+    state: {
+      value: null
+    }
+  }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
+  }
+
+  onGoToEdit(item: any): void{
+    this.navigationExtras.state = {value: item};
+    this.router.navigate(['windows/asg/update'], this.navigationExtras);
+  }
+
+  onGoToDelete(item: any){}
+
+  onGoToNew(){
+    this.navigationExtras.state = {value: null};
+    this.router.navigate(['windows/asg/new']);
   }
 
 }
