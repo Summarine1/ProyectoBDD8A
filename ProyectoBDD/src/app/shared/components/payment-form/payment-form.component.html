@@ -1,0 +1,18 @@
+<div class="container">
+    <p class="display-4 offset-md-2">Payment Form</p>
+    <form class="mt-3 col-md-8 offset-md-2" [formGroup]="paymentForm">
+        <div class="form-row">
+            <div class="form-group col-md-12 mt-3">
+                <input type="text" class="form-control" placeholder="Title" formControlName="title" />
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-12 mt-3">
+                <input type="number" min="0" class="form-control" placeholder="Salary" formControlName="salary">
+            </div>
+        </div>
+        <div class="d-grid gap-2 mt-3">
+            <button type="submit" class="btn btn-lg btn-success text-light" (click)="onSave()">Guardar</button>
+        </div>
+    </form>
+</div>

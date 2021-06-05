@@ -22,7 +22,7 @@ export class EmployeeFormComponent implements OnInit {
 
   ngOnInit(): void {
     if(typeof this.employee === 'undefined'){
-      this.router.navigate(['']);
+      this.router.navigate(['windows/emp/new']);
     }else{
       this.employeeForm.patchValue(this.employee);
     }
