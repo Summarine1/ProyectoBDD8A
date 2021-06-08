@@ -1,0 +1,35 @@
+{
+  "name": "backend",
+  "version": "0.0.1",
+  "description": "Es un backend para el proyecto de BDD de la universidad autónoma de aguascalientes",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest ./tests --watchAll",
+    "start": "node index",
+    "dev": "nodemon index",
+    "test-list": "jest --listTests"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Summarine1/ProyectoBDD8A.git"
+  },
+  "keywords": [
+    "JS",
+    "Backend",
+    "Project"
+  ],
+  "author": "Víctor Hugo Olivetti Alvarez",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Summarine1/ProyectoBDD8a/issues"
+  },
+  "homepage": "https://github.com/Summarine1/ProyectoBDD8A#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "jest": "^27.0.4",
+    "mysql": "^2.18.1",
+    "nodemon": "^2.0.7"
+  }
+}
