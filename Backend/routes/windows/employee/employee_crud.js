@@ -1,9 +1,9 @@
 const Router = require('express').Router();
 const Employee = require('../../../interfaces/Employee.js');
-const MySQLPoolLinux = require('../../../connections/MySQLPoolLinux.js');
+const MySQLPoolWindows = require('../../../connections/MySQLPoolWindows.js');
 
 Router.get('/newid', async (req, res) => {
-	MySQLPoolLinux.query('SELECT CAST(SUBSTRING(eno, 2, 10) AS UNSIGNED) AS ID FROM emp ORDER BY ID DESC;',
+	MySQLPoolWindows.query('SELECT CAST(SUBSTRING(eno, 2, 10) AS UNSIGNED) AS ID FROM emp ORDER BY ID DESC;',
 		(err, results, fields) => {
 			if(err){
 				res.status(400).json({err});
@@ -18,7 +18,7 @@ Router.get('/all', async (req, res) => {
 	if( Object.keys(req.query).length != 0){
 		if(req.query.name !== undefined){
 			const NameSearch = req.query.name;
-			MySQLPoolLinux.query(`SELECT * FROM emp where ename like '%${NameSearch}%';`, 
+			MySQLPoolWindows.query(`SELECT * FROM emp where ename like '%${NameSearch}%';`, 
 				(err, results, fields) => {
 					if(err){
 						res.status(400).json({err});
@@ -37,7 +37,7 @@ Router.get('/all', async (req, res) => {
 		}
 	}
 	else{
-		MySQLPoolLinux.query('SELECT * FROM emp;', (err, results, fields) => {
+		MySQLPoolWindows.query('SELECT * FROM emp;', (err, results, fields) => {
 			if(err){
 				res.status(400).json({err});
 			}
@@ -61,7 +61,7 @@ Router.post('/new', async (req, res) => {
 	}
 	else{
 		const { emp } = req.body;
-		MySQLPoolLinux.query(`INSERT INTO emp(eno, ename, title) 
+		MySQLPoolWindows.query(`INSERT INTO emp(eno, ename, title) 
 			VALUES ('${emp.eno}', '${emp.ename}', '${emp.title}');`, (err, results, fields) => {
 				if(err){
 					res.status(400).json({err});
@@ -81,7 +81,7 @@ Router.put('/update', async (req, res) => {
 	}
 	else{
 		const { emp } = req.body;
-		MySQLPoolLinux.query(`UPDATE emp SET ename='${emp.ename}', title='${emp.title}'
+		MySQLPoolWindows.query(`UPDATE emp SET ename='${emp.ename}', title='${emp.title}'
 			where eno='${emp.eno}'`, (err, results, fields) => {
 				if(err){
 					res.status(400).json({err});
@@ -101,7 +101,7 @@ Router.delete('/delete', async (req, res) => {
 	}
 	else{
 		const { emp } = req.body;
-		MySQLPoolLinux.query(`DELETE FROM emp where eno='${emp.eno}'`, (err, results, fields) => {
+		MySQLPoolWindows.query(`DELETE FROM emp where eno='${emp.eno}'`, (err, results, fields) => {
 				if(err){
 					res.status(400).json({err});
 				}

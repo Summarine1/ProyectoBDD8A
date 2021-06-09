@@ -30,7 +30,7 @@ export class PaymentFormComponent implements OnInit {
     console.log('Guardado', this.paymentForm.value);
     if(this.paymentForm.valid){
       const  payment = this.paymentForm.value;
-      const paymentObj = {lastTitle: this.payment.lastTitle, title: payment.title, salary: payment.salary};
+      const paymentObj = this.payment;
       //Falta la función para guardar
     }
   }

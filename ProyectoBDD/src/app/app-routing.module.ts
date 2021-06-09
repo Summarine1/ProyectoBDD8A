@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CrudComponent } from './components/crud.component';
+
 import { CrudWindowsComponent } from './components/crud-windows/crud-windows.component';
 import { CrudEmpWindowsComponent } from './components/windows/crud-emp-windows/crud-emp-windows.component';
 import { UpdateEmpWindowsComponent } from './components/windows/crud-emp-windows/update-emp-windows/update-emp-windows.component';
@@ -19,8 +20,27 @@ import { ListAsgWindowsComponent } from './components/windows/crud-assign-window
 import { CreateAsgWindowsComponent } from './components/windows/crud-assign-windows/create-asg-windows/create-asg-windows.component';
 import { UpdateAsgWindowsComponent } from './components/windows/crud-assign-windows/update-asg-windows/update-asg-windows.component';
 
+import { CrudLinuxComponent } from './components/crud-linux/crud-linux.component';
+import { CrudEmpLinuxComponent } from './components/linux/crud-emp-linux/crud-emp-linux.component';
+import { UpdateEmpLinuxComponent } from './components/linux/crud-emp-linux/update-emp-linux/update-emp-linux.component';
+import { CreateEmpLinuxComponent } from './components/linux/crud-emp-linux/create-emp-linux/create-emp-linux.component';
+import { ListEmpLinuxComponent } from './components/linux/crud-emp-linux/list-emp-linux/list-emp-linux.component';
+import { CrudProjLinuxComponent } from './components/linux/crud-proj-linux/crud-proj-linux.component';
+import { ListProjLinuxComponent } from './components/linux/crud-proj-linux/list-proj-linux/list-proj-linux.component';
+import { CreateProjLinuxComponent } from './components/linux/crud-proj-linux/create-proj-linux/create-proj-linux.component';
+import { UpdateProjLinuxComponent } from './components/linux/crud-proj-linux/update-proj-linux/update-proj-linux.component';
+import { CrudPaymentLinuxComponent } from './components/linux/crud-payment-linux/crud-payment-linux.component';
+import { ListPayLinuxComponent } from './components/linux/crud-payment-linux/list-pay-linux/list-pay-linux.component';
+import { CreatePayLinuxComponent } from './components/linux/crud-payment-linux/create-pay-linux/create-pay-linux.component';
+import { UpdatePayLinuxComponent } from './components/linux/crud-payment-linux/update-pay-linux/update-pay-linux.component';
+import { CrudAssignLinuxComponent } from './components/linux/crud-assign-linux/crud-assign-linux.component';
+import { ListAsgLinuxComponent } from './components/linux/crud-assign-linux/list-asg-linux/list-asg-linux.component';
+import { CreateAsgLinuxComponent } from './components/linux/crud-assign-linux/create-asg-linux/create-asg-linux.component';
+import { UpdateAsgLinuxComponent } from './components/linux/crud-assign-linux/update-asg-linux/update-asg-linux.component';
+
 const routes: Routes = [
   { path: '*', component: CrudComponent },
+
   {
     path: 'windows', component: CrudWindowsComponent, children: [
       {
@@ -56,7 +76,45 @@ const routes: Routes = [
         ]
       }
     ]
+  },
+
+  {
+    path: 'linux', component: CrudLinuxComponent, children: [
+      {
+        path: 'emp', component: CrudEmpLinuxComponent, children: [
+          { path: '', component: ListEmpLinuxComponent },
+          { path: 'update', component: UpdateEmpLinuxComponent },
+          { path: 'new', component: CreateEmpLinuxComponent },
+          { path: 'list', component: ListEmpLinuxComponent },
+        ]
+      },
+      {
+        path: 'proj', component: CrudProjLinuxComponent, children: [
+          { path: '', component: ListProjLinuxComponent },
+          { path: 'new', component: CreateProjLinuxComponent },
+          { path: 'update', component: UpdateProjLinuxComponent },
+          { path: 'list', component: ListProjLinuxComponent },
+        ]
+      },
+      {
+        path: 'pay', component: CrudPaymentLinuxComponent, children: [
+          { path: '', component: ListPayLinuxComponent },
+          { path: 'new', component: CreatePayLinuxComponent },
+          { path: 'update', component: UpdatePayLinuxComponent },
+          {path: 'list', component: ListPayLinuxComponent}
+        ]
+      },
+      {
+        path: 'asg', component: CrudAssignLinuxComponent, children: [
+          {path: '', component: ListAsgLinuxComponent},
+          {path: 'new', component: CreateAsgLinuxComponent},
+          {path: 'update', component: UpdateAsgLinuxComponent},
+          {path: 'list', component: ListAsgLinuxComponent},
+        ]
+      }
+    ]
   }
+
 ];
 
 @NgModule({

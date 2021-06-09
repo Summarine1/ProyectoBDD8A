@@ -21,14 +21,14 @@
                     </div>
                   </li>
                   <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLinkLinux" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                       Linux DB
                     </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                      <a class="dropdown-item" href="/">Employees</a> 
-                      <a class="dropdown-item" href="/">Assign</a>
-                      <a class="dropdown-item" href="/">Projects</a>
-                      <a class="dropdown-item" href="/">Payment</a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLinkLinux">
+                      <a class="dropdown-item" [routerLink]="['linux/emp']">Employees</a> 
+                      <a class="dropdown-item" [routerLink]="['linux/asg']">Assign</a> 
+                      <a class="dropdown-item" [routerLink]="['linux/proj']">Projects</a> 
+                      <a class="dropdown-item" [routerLink]="['linux/pay']">Payment</a> 
                     </div>
                 </li>
         </ul>

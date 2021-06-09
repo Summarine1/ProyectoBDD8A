@@ -31,6 +31,23 @@ import { ListAsgWindowsComponent } from './components/windows/crud-assign-window
 import { CreateAsgWindowsComponent } from './components/windows/crud-assign-windows/create-asg-windows/create-asg-windows.component';
 import { UpdateAsgWindowsComponent } from './components/windows/crud-assign-windows/update-asg-windows/update-asg-windows.component';
 import { AssignFormComponent } from './shared/components/assign-form/assign-form.component';
+import { CrudLinuxComponent } from './components/crud-linux/crud-linux.component';
+import { CrudAssignLinuxComponent } from './components/linux/crud-assign-linux/crud-assign-linux.component';
+import { CrudEmpLinuxComponent } from './components/linux/crud-emp-linux/crud-emp-linux.component';
+import { CrudPaymentLinuxComponent } from './components/linux/crud-payment-linux/crud-payment-linux.component';
+import { CrudProjLinuxComponent } from './components/linux/crud-proj-linux/crud-proj-linux.component';
+import { CreateAsgLinuxComponent } from './components/linux/crud-assign-linux/create-asg-linux/create-asg-linux.component';
+import { ListAsgLinuxComponent } from './components/linux/crud-assign-linux/list-asg-linux/list-asg-linux.component';
+import { UpdateAsgLinuxComponent } from './components/linux/crud-assign-linux/update-asg-linux/update-asg-linux.component';
+import { CreateProjLinuxComponent } from './components/linux/crud-proj-linux/create-proj-linux/create-proj-linux.component';
+import { UpdateProjLinuxComponent } from './components/linux/crud-proj-linux/update-proj-linux/update-proj-linux.component';
+import { ListProjLinuxComponent } from './components/linux/crud-proj-linux/list-proj-linux/list-proj-linux.component';
+import { ListEmpLinuxComponent } from './components/linux/crud-emp-linux/list-emp-linux/list-emp-linux.component';
+import { UpdateEmpLinuxComponent } from './components/linux/crud-emp-linux/update-emp-linux/update-emp-linux.component';
+import { CreateEmpLinuxComponent } from './components/linux/crud-emp-linux/create-emp-linux/create-emp-linux.component';
+import { CreatePayLinuxComponent } from './components/linux/crud-payment-linux/create-pay-linux/create-pay-linux.component';
+import { UpdatePayLinuxComponent } from './components/linux/crud-payment-linux/update-pay-linux/update-pay-linux.component';
+import { ListPayLinuxComponent } from './components/linux/crud-payment-linux/list-pay-linux/list-pay-linux.component';
 
 @NgModule({
   declarations: [
@@ -58,6 +75,23 @@ import { AssignFormComponent } from './shared/components/assign-form/assign-form
     CreateAsgWindowsComponent,
     UpdateAsgWindowsComponent,
     AssignFormComponent,
+    CrudLinuxComponent,
+    CrudAssignLinuxComponent,
+    CrudEmpLinuxComponent,
+    CrudPaymentLinuxComponent,
+    CrudProjLinuxComponent,
+    CreateAsgLinuxComponent,
+    ListAsgLinuxComponent,
+    UpdateAsgLinuxComponent,
+    CreateProjLinuxComponent,
+    UpdateProjLinuxComponent,
+    ListProjLinuxComponent,
+    ListEmpLinuxComponent,
+    UpdateEmpLinuxComponent,
+    CreateEmpLinuxComponent,
+    CreatePayLinuxComponent,
+    UpdatePayLinuxComponent,
+    ListPayLinuxComponent,
   ],
   imports: [
     BrowserModule,

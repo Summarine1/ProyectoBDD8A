@@ -1,5 +1,5 @@
 export interface Payment{
-    lastTitle: string;
+    payno: string;
     title: string;
     salary: number;
 }
