@@ -17,19 +17,21 @@
         <table class="table table-striped table-bordered table-hover mt-5">
             <thead class="table-head">
                 <tr>
+                    <th>Payment Number</th>
                     <th>Title</th>
                     <th>Salary</th>
                     <th>Actions</th>
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let item of [0, 1, 2, 3]">
-                    <th scope="row">1</th>
-                    <td>$Otto</td>
+                <tr *ngFor="let payment of payments | async">
+                    <th scope="row">{{payment.payno}}</th>
+                    <td>{{payment.title}}</td>
+                    <td>{{payment.salary}}</td>
                     <td class="btn-group d-none d-sm-block" role="group">
-                        <button type="button" class="btn btn-warning m-1" (click)="onGoToEdit(item)"><i
+                        <button type="button" class="btn btn-warning m-1" (click)="onGoToEdit(payment)"><i
                                 class="bi bi-pencil-square"></i></button>
-                        <button type="button" class="btn btn-danger m-1"><i class="bi bi-trash-fill"></i></button>
+                        <button type="button" class="btn btn-danger m-1" (click)="onGoToDelete(payment)"><i class="bi bi-trash-fill"></i></button>
                     </td>
                 </tr>
             </tbody>

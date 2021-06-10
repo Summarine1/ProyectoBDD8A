@@ -3,16 +3,50 @@
     <form class="mt-3 col-md-8 offset-md-2" [formGroup]="employeeForm">
         <div class="form-row">
             <div class="form-group col-md-12 mt-3">
-                <input type="text" class="form-control" placeholder="Nombre" formControlName="ename" />
+                <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Nombre"
+                    formControlName="ename" />
             </div>
         </div>
-        <div class="form-row">
-            <div class="form-group col-md-12 mt-3">
-                <input type="text" class="form-control" placeholder="Titulo" formControlName="title">
+
+        <div class="form-row my-3">
+            <div class="form-group col-md-12">
+
+                <select
+                    class="form-select"
+                    *ngIf="employee; else newEmp"
+                    formControlName="title"
+                >
+                    <option
+                        *ngFor="let title of titles | async"
+                        [selected]="title.title === employee.title"
+                        [value]="title.title">{{title.title}}</option>
+                </select>
+
+                <ng-template #newEmp>
+                    <select class="form-select" formControlName="title">
+                        <option selected>Open title menu</option> 
+                        <option *ngFor="let title of titles | async"
+                            [value]="title.title">{{title.title}}</option>
+                    </select>
+                </ng-template>
             </div>
         </div>
-        <div class="d-grid gap-2 mt-3">
-            <button type="submit" class="btn btn-lg btn-success text-light" (click)="onSave()">Guardar</button>
+
+        <div class="d-grid gap-2 d-md-flex mt-3">
+            <button type="submit" class="btn btn-lg btn-success col-md-6"
+                (click)="onSave()"
+            >
+                Guardar
+            </button>
+            <button type="button" class="btn btn-lg btn-success col-md-6"
+                (click)="onGoBackToList()"
+            >
+                Go back to list
+            </button>
         </div>
+
     </form>
 </div>

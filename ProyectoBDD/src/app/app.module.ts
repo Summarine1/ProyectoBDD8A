@@ -2,9 +2,11 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {RouterModule} from '@angular/router';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
 
 //Import Components
 import { AppComponent } from './app.component';
@@ -20,7 +22,7 @@ import { CrudProjWindowsComponent } from './components/windows/crud-proj-windows
 import { ListProjWindowsComponent } from './components/windows/crud-proj-windows/list-proj-windows/list-proj-windows.component';
 import { CreateProjWindowsComponent } from './components/windows/crud-proj-windows/create-proj-windows/create-proj-windows.component';
 import { UpdateProjWindowsComponent } from './components/windows/crud-proj-windows/update-proj-windows/update-proj-windows.component';
-import {ProjectsFormComponent} from './shared/components/projects-form/projects-form.component';
+import { ProjectsFormComponent } from './shared/components/projects-form/projects-form.component';
 import { CrudPaymentWindowsComponent } from './components/windows/crud-payment-windows/crud-payment-windows.component';
 import { CreatePayWindowsComponent } from './components/windows/crud-payment-windows/create-pay-windows/create-pay-windows.component';
 import { ListPayWindowsComponent } from './components/windows/crud-payment-windows/list-pay-windows/list-pay-windows.component';
@@ -48,6 +50,12 @@ import { CreateEmpLinuxComponent } from './components/linux/crud-emp-linux/creat
 import { CreatePayLinuxComponent } from './components/linux/crud-payment-linux/create-pay-linux/create-pay-linux.component';
 import { UpdatePayLinuxComponent } from './components/linux/crud-payment-linux/update-pay-linux/update-pay-linux.component';
 import { ListPayLinuxComponent } from './components/linux/crud-payment-linux/list-pay-linux/list-pay-linux.component';
+
+//Servicios
+import { EmployeesService } from './services/employees/employees.service';
+import { ProjectService } from './services/project/project.service';
+import { AssignService } from './services/assign/assign.service';
+import { PaymentService } from './services/payment/payment.service';
 
 @NgModule({
   declarations: [
@@ -99,9 +107,16 @@ import { ListPayLinuxComponent } from './components/linux/crud-payment-linux/lis
     ReactiveFormsModule,
     FormsModule,
     RouterModule,
+    HttpClientModule,
+    BrowserAnimationsModule,
     ToastrModule.forRoot()
   ],
-  providers: [],
+  providers: [
+    EmployeesService,
+    ProjectService,
+    AssignService,
+    PaymentService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

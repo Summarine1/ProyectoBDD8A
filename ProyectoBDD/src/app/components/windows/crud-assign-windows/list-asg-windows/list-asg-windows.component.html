@@ -25,15 +25,15 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let item of [0, 1, 2, 3]">
-                    <th scope="row">1</th>
-                    <th scope="row">2</th>
-                    <td>$Otto</td>
-                    <td>20</td>
+                <tr *ngFor="let asg of listAssigns | async">
+                    <th scope="row">{{asg.eno}}</th>
+                    <th scope="row">{{asg.pno}}</th>
+                    <td>{{asg.resp}}</td>
+                    <td>{{asg.dur}}</td>
                     <td class="btn-group d-none d-sm-block" role="group">
-                        <button type="button" class="btn btn-warning m-1" (click)="onGoToEdit(item)"><i
+                        <button type="button" class="btn btn-warning m-1" (click)="onGoToEdit(asg)"><i
                                 class="bi bi-pencil-square"></i></button>
-                        <button type="button" class="btn btn-danger m-1"><i class="bi bi-trash-fill"></i></button>
+                        <button type="button" class="btn btn-danger m-1" (click)="onGoToDelete(asg)"><i class="bi bi-trash-fill"></i></button>
                     </td>
                 </tr>
             </tbody>

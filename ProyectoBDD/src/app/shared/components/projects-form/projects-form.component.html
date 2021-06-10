@@ -11,8 +11,19 @@
                 <input type="number" min="0" class="form-control" placeholder="Project Budget" formControlName="budget">
             </div>
         </div>
-        <div class="d-grid gap-2 mt-3">
-            <button type="submit" class="btn btn-lg btn-success text-light" (click)="onSave()">Guardar</button>
+
+        <div class="d-grid gap-2 d-md-flex mt-3">
+            <button type="submit" class="btn btn-lg btn-success col-md-6"
+                (click)="onSave()"
+            >
+                Guardar
+            </button>
+            <button type="button" class="btn btn-lg btn-success col-md-6"
+                (click)="onGoBackToList()"
+            >
+                Go back to list
+            </button>
         </div>
+
     </form>
 </div>

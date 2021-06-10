@@ -1,13 +1,36 @@
-
 <div class="container">
     <p class="display-4 offset-md-2">Assign Form</p>
     <form class="mt-3 col-md-8 offset-md-2" [formGroup]="assignForm">
         <div class="form-row mt-3">
-            <div class="input-group col-md-12">
-                <input type="text" class="form-control" placeholder="Employee Number" formControlName="eno" />
+
+            <div class="input-group col-md-12" *ngIf="assign; else newAsg">
+                <select class="form-select" formControlName="eno">
+                    <option *ngFor="let employee of employees | async" [value]="employee.eno"
+                        [selected]="assign.eno === employee.eno">{{employee.ename}}</option>
+                </select>
                 <span class="input-group-text">at</span>
-                <input type="text" class="form-control" placeholder="Project Number" formControlName="pno" />
+                <select class="form-select" formControlName="pno">
+                    <option *ngFor="let project of projects | async" [value]="project.pno"
+                        [selected]="assign.pno === project.pno">{{project.pname}}</option>
+                </select>
             </div>
+
+            <ng-template #newAsg>
+                <div class="input-group col-md-12">
+                    <select class="form-select" formControlName="eno">
+                        <option selected>Open employee menu to work</option>
+                        <option *ngFor="let employee of employees | async" [value]="employee.eno">{{employee.ename}}
+                        </option>
+                    </select>
+                    <span class="input-group-text">at</span>
+                    <select class="form-select" formControlName="pno">
+                        <option selected>Open project menu to work at</option>
+                        <option *ngFor="let project of projects | async" [value]="project.pno">{{project.pname}}
+                        </option>
+                    </select>
+                </div>
+            </ng-template>
+
         </div>
 
         <div class="form-row">
@@ -21,8 +44,11 @@
             </div>
         </div>
 
-        <div class="d-grid gap-2 mt-3">
-            <button type="submit" class="btn btn-lg btn-success text-light" (click)="onSave()">Guardar</button>
+        <div class="d-grid gap-2 d-md-flex mt-3">
+            <button type="submit" class="btn btn-lg btn-success col-md-6" (click)="onSave()">Guardar</button>
+            <button type="button" class="btn btn-lg btn-success col-md-6" (click)="onGoBackToList()">
+                Go back to list
+            </button>
         </div>
     </form>
 </div>

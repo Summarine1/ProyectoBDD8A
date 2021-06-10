@@ -1,4 +1,6 @@
-function Assign(eno, pno, resp, dur){
+function Assign(lastEno, lastPno, eno, pno, resp, dur){
+	this.lastEno = lastEno;
+	this.lastPno = lastPno
 	this.eno = eno;
 	this.pno = pno;
 	this.resp = resp;
@@ -6,6 +8,8 @@ function Assign(eno, pno, resp, dur){
 }
 
 function Assign(objs){
+	this.lastEno = objs.lastEno;
+	this.lastPno = objs.lastPno
 	this.eno = objs.eno;
 	this.pno = objs.pno;
 	this.resp = objs.resp;
