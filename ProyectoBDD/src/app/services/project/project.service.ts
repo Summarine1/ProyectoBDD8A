@@ -22,6 +22,15 @@ export class ProjectService {
     return this.listProjects$;
   }
 
+  searchValue(osDb: string, value:string): Observable<Project[]>{
+	this.listProjects$ = this.http.get(`http://localhost:3000/${osDb}/project/all?name=${value}`)
+	.pipe(
+		map((data) => {
+			return data as Project [];
+		}));
+	return this.listProjects$;
+  }
+
   addValue(osDb: string, project: Project){
     let httpHeaders = new HttpHeaders({
       'Content-Type': 'application/json',

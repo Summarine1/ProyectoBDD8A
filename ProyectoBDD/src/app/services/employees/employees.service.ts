@@ -23,6 +23,14 @@ export class EmployeesService {
     return this.listEmployees$;
   }
 
+  searchValue(osDb: string, resp: string): Observable<Employee []>{
+	this.listEmployees$ = this.http.get(`http://localhost:3000/${osDb}/employee/all?name=${resp}`)
+	.pipe(
+		map((data) => {
+			return data as Employee[];
+		}));
+	return this.listEmployees$;
+  }
   addValue(osDb: string, employee: Employee){
     let httpHeaders = new HttpHeaders({
       'Content-Type': 'application/json',

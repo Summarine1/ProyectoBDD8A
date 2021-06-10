@@ -35,6 +35,15 @@ export class ListPayWindowsComponent implements OnInit {
     this.router.navigate(['windows/pay/update'], this.navigatonExtras);
 
   }
+  
+  onGoToSearch(value: string){
+	this.payments = this.pay.searchValue('windows', value);
+	const sub = this.payments.subscribe((data) => {
+	  sub.unsubscribe();
+	}, (error) => {
+		this.toastr.error(error.error.error, "Assignment loading error");
+	});
+  }
 
   onGoToDelete(item: any){
     const response = this.pay.deleteValue('windows', item);

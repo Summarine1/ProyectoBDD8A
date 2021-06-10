@@ -35,6 +35,15 @@ export class ListProjWindowsComponent implements OnInit {
     this.router.navigate(['windows/proj/update'], this.navigationExtras);
   }
 
+  onGoToSearch(value: string){
+	this.projects = this.proj.searchValue('windows', value);
+	const sub = this.projects.subscribe((data) => {
+	  sub.unsubscribe();
+	}, (error) => {
+		this.toastr.error(error.error.error, "Assignment loading error");
+	});
+  }
+
   onGoToDelete(item: any){
     const response = this.proj.deleteValue('windows', item);
     const sub = response.subscribe((data) => {

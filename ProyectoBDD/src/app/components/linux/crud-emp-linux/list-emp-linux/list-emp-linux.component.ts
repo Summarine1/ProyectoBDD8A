@@ -31,6 +31,15 @@ export class ListEmpLinuxComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  onGoToSearch(value: string){
+	this.list = this.emp.searchValue('linux', value);
+	const sub = this.list.subscribe((data) => {
+	  sub.unsubscribe();
+	}, (error) => {
+		this.toastr.error(error.error.error, "Assignment loading error");
+	});
+  }
+
   onGoToEdit(item: any): void {
     this.navigationExtras.state = { value: item, osDb: 'linux' };
     this.router.navigate(['linux/emp/update'], this.navigationExtras);

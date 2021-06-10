@@ -31,6 +31,15 @@ export class ListEmpWindowsComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  onGoToSearch(value: string){
+	this.list = this.emp.searchValue('windows', value);
+	const sub = this.list.subscribe((data) => {
+	  sub.unsubscribe();
+	}, (error) => {
+		this.toastr.error(error.error.error, "Assignment loading error");
+	});
+  }
+
   onGoToEdit(item: any): void {
     this.navigationExtras.state = { value: item, osDb: 'windows' };
     this.router.navigate(['windows/emp/update'], this.navigationExtras);

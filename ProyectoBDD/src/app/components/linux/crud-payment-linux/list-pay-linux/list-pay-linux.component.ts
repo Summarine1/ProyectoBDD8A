@@ -37,6 +37,15 @@ export class ListPayLinuxComponent implements OnInit {
 
   }
 
+  onGoToSearch(value: string){
+	this.payments = this.pay.searchValue('linux', value);
+	const sub = this.payments.subscribe((data) => {
+	  sub.unsubscribe();
+	}, (error) => {
+		this.toastr.error(error.error.error, "Assignment loading error");
+	});
+  }
+
   onGoToDelete(item: any){
     const response = this.pay.deleteValue('linux', item);
     const sub = response.subscribe((data) => {

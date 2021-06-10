@@ -32,6 +32,15 @@ export class ListAsgWindowsComponent implements OnInit {
     });
   }
 
+  onGoToSearch(value: string){
+	this.listAssigns = this.asg.searchValue('windows', value);
+	const sub = this.listAssigns.subscribe((data) => {
+	  sub.unsubscribe();
+	}, (error) => {
+		this.toastr.error(error.error.error, "Assignment loading error");
+	});
+  }
+
   onGoToEdit(item: any): void{
     const asg = {...item, lastEno: item.eno, lastPno: item.pno};
     this.navigationExtras.state = {value: asg, osDb: 'windows'};

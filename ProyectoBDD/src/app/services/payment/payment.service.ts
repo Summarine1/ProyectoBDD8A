@@ -21,6 +21,15 @@ export class PaymentService {
     return this.listPayments$;
   }
 
+  searchValue(osDb: string, value:string): Observable<Payment[]>{
+	this.listPayments$ = this.http.get(`http://localhost:3000/${osDb}/payment/all?name=${value}`)
+	.pipe(
+		map((data) => {
+			return data as Payment [];
+		}));
+	return this.listPayments$;
+  }
+
   addValue(osDb: string, payment: Payment){
     let httpHeaders = new HttpHeaders({
       'Content-Type': 'application/json',

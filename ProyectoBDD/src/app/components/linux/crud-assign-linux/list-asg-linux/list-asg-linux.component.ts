@@ -39,6 +39,15 @@ export class ListAsgLinuxComponent implements OnInit {
     this.router.navigate(['linux/asg/update'], this.navigationExtras);
   }
 
+  onGoToSearch(value: string){
+	this.listAssigns = this.asg.searchValue('linux', value);
+	const sub = this.listAssigns.subscribe((data) => {
+	  sub.unsubscribe();
+	}, (error) => {
+		this.toastr.error(error.error.error, "Assignment loading error");
+	});
+  }
+
   onGoToDelete(item: any){
     const response = this.asg.deleteValue('linux', item);
     const sub = response.subscribe((data) => {

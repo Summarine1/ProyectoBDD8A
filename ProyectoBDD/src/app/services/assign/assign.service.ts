@@ -25,6 +25,15 @@ export class AssignService {
     return this.listAssigns$;
   }
 
+  searchValue(osDb: string, resp: string): Observable<Assign []>{
+	this.listAssigns$ = this.http.get(`http://localhost:3000/${osDb}/assign/all?name=${resp}`)
+	.pipe(
+		map((data) => {
+			return data as Assign[];
+		}));
+	return this.listAssigns$;
+  }
+
   addValues(osDb: string, assign: Assign): Observable<any>{
     let httpHeaders = new HttpHeaders({
       'Content-Type': 'application/json',

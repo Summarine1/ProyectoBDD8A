@@ -31,6 +31,15 @@ export class ListProjLinuxComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  onGoToSearch(value: string){
+	this.projects = this.proj.searchValue('linux', value);
+	const sub = this.projects.subscribe((data) => {
+	  sub.unsubscribe();
+	}, (error) => {
+		this.toastr.error(error.error.error, "Assignment loading error");
+	});
+  }
+
   onGoToEdit(item: any){
     this.navigationExtras.state = {value: item, osDb: 'linux'};
     this.router.navigate(['linux/proj/update'], this.navigationExtras);
