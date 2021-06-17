@@ -4,7 +4,7 @@ const MySQLPoolWindows = mysql.createPool({
 	host: '172.23.137.221',
 	user: 'wndarchitect',
 	password: 'ProyectoBDD8A',
-	database: 'acmeconsult'
+	database: 'acmewnd'
 });
 
 module.exports = MySQLPoolWindows;
