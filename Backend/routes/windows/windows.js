@@ -53,7 +53,7 @@ Router.get('/medbudget', (req, res) => {
 });
 
 Router.get('/maxdur', (req, res) => {
-	MySQLPoolWindows.query('SELECT * FROM maxdur;', (err, result, fields) => {
+	MySQLPoolWindows.query('SELECT * FROM maxdur ORDER BY dur ASC LIMIT 5;', (err, result, fields) => {
 		if(err){
 			res.status(400).json({error: err.sqlMessage, code: err.code});
 			return;
@@ -79,7 +79,7 @@ Router.get('/meddur', (req, res) => {
 });
 
 Router.get('/mindur', (req, res) => {
-	MySQLPoolWindows.query('SELECT * FROM mindur;', (err, result, fields) => {
+	MySQLPoolWindows.query('SELECT * FROM mindur ORDER BY dur DESC LIMIT 5;', (err, result, fields) => {
 		if(err){
 			res.status(400).json({error: err.sqlMessage, code: err.code});
 			return;

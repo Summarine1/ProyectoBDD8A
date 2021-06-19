@@ -14,7 +14,20 @@ Router.use('/payment', PaymentCRUD);
 Router.use('/assign', AssignCRUD);
 
 Router.get('/mostpayed', (req, res) => {
-	MySQLPoolLinux.query('SELECT * FROM MostPayed;', (err, results, fields) => {
+	MySQLPoolLinux.query('SELECT * FROM mostpayedthan ORDER BY salary ASC LIMIT 5;', (err, results, fields) => {
+		if(err){
+			res.status(400).send({error: err.sqlMessage, code: err.code});
+			return;
+		}else{
+			const Titles = results.map( x => new Payment(x));
+			console.log(Titles);
+			res.json([...Titles]);
+		}
+	});
+});
+
+Router.get('/lesspayed', (req, res) => {
+	MySQLPoolLinux.query('SELECT * FROM lesspayedthan ORDER BY salary DESC LIMIT 5;', (err, results, fields) => {
 		if(err){
 			res.status(400).send({error: err.sqlMessage, code: err.code});
 			return;
@@ -24,23 +37,10 @@ Router.get('/mostpayed', (req, res) => {
 			res.json([...Titles]);
 		}
 	});
-});
-
-Router.get('/lesspayed', (req, res) => {
-	MySQLPoolLinux.query('SELECT * FROM LessPayed;', (err, results, fields) => {
-		if(err){
-			res.status(400).send({error: err.sqlMessage, code: err.code});
-			return;
-		}else{
-			const Titles = results.map(x => new Payment(x));
-			console.log(Titles);
-			res.json([...Titles]);
-		}
-	})
-});
+})
 
 Router.get('/electeng', (req, res) => {
-	MySQLPoolLinux.query('SELECT * FROM ElectEng;', (err, results, fields) => {
+	MySQLPoolLinux.query('SELECT * FROM electeng;', (err, results, fields) => {
 		if(err){
 			res.status(400).send({error: err.sqlMessage, code: err.code});
 			return;
@@ -53,7 +53,7 @@ Router.get('/electeng', (req, res) => {
 });
 
 Router.get('/mecheng', (req, res) => {
-	MySQLPoolLinux.query('SELECT * FROM MechEng;', (err, results, fields) => {
+	MySQLPoolLinux.query('SELECT * FROM mecheng;', (err, results, fields) => {
 		if(err){
 			res.status(400).send({error: err.sqlMessage, code: err.code});
 			return;
@@ -66,7 +66,7 @@ Router.get('/mecheng', (req, res) => {
 });
 
 Router.get('/systemanal', (req, res) => {
-	MySQLPoolLinux.query('SELECT * FROM SystemAnal;', (err, results, fields) => {
+	MySQLPoolLinux.query('SELECT * FROM systemanal;', (err, results, fields) => {
 		if(err){
 			res.status(400).send({error: err.sqlMessage, code: err.code});
 			return;
