@@ -14,20 +14,19 @@ Router.use('/payment', PaymentCRUD);
 Router.use('/assign', AssignCRUD);
 
 Router.get('/mostpayed', (req, res) => {
-	MySQLPoolLinux.query('SELECT * FROM mostpayedthan ORDER BY salary ASC LIMIT 5;', (err, results, fields) => {
+	MySQLPoolLinux.query('SELECT count(*) count FROM mostpayedthan inner join emp on emp.title = mostpayedthan.title;', (err, results, fields) => {
 		if(err){
 			res.status(400).send({error: err.sqlMessage, code: err.code});
 			return;
 		}else{
-			const Titles = results.map( x => new Payment(x));
-			console.log(Titles);
-			res.json([...Titles]);
+			console.log(results);
+			res.json(results[0].count);
 		}
 	});
 });
 
 Router.get('/lesspayed', (req, res) => {
-	MySQLPoolLinux.query('SELECT * FROM lesspayedthan ORDER BY salary DESC LIMIT 5;', (err, results, fields) => {
+	MySQLPoolLinux.query('SELECT count(*) FROM lesspayedthan inner join emp on emp.title = lesspayedthan.title;', (err, results, fields) => {
 		if(err){
 			res.status(400).send({error: err.sqlMessage, code: err.code});
 			return;
@@ -39,59 +38,49 @@ Router.get('/lesspayed', (req, res) => {
 	});
 });
 
-Router.get('/titlesinmiddle', (req, res) => {
-	MySQLPoolLinux.query('select count(a.ename) count, a.title from (select emp.title, emp.ename from emp inner join middlepayed on emp.title = middlepayed.title) as a group by a.title;', (err, results, fields) => {
+Router.get('/middlepayed', (req, res) => {
+	MySQLPoolLinux.query('select count(*) count from emp inner join middlepayed on emp.title = middlepayed.title;', (err, results, fields) => {
 		if(err){
 			res.status(400).send({error: err.sqlMessage, code: err.code});
 			return;
 		}else{
-			const Count = results.map(x => {
-				return {
-				title: x.title,
-				count: x.count
-				}
-			});
-			console.log(Count);
-			res.json([...Count]);
+			res.json(results[0].count);
 		}
 	});
 })
 
 Router.get('/electeng', (req, res) => {
-	MySQLPoolLinux.query('SELECT * FROM electeng;', (err, results, fields) => {
+	MySQLPoolLinux.query('SELECT count(*) count FROM electeng;', (err, results, fields) => {
 		if(err){
 			res.status(400).send({error: err.sqlMessage, code: err.code});
 			return;
 		}else{
-			const Employees = results.map(x => new Employee(x));
-			console.log(Employees);
-			res.json([...Employees]);
+			console.log(results);
+			res.json(results[0].count);
 		}
 	});
 });
 
 Router.get('/mecheng', (req, res) => {
-	MySQLPoolLinux.query('SELECT * FROM mecheng;', (err, results, fields) => {
+	MySQLPoolLinux.query('SELECT count(*) count FROM mecheng;', (err, results, fields) => {
 		if(err){
 			res.status(400).send({error: err.sqlMessage, code: err.code});
 			return;
 		}else{
-			const Employees = results.map(x => new Employee(x));
-			console.log(Employees);
-			res.json([...Employees]);
+			console.log(results)
+			res.json(results[0].count);
 		}
 	});
 });
 
 Router.get('/systemanal', (req, res) => {
-	MySQLPoolLinux.query('SELECT * FROM systemanal;', (err, results, fields) => {
+	MySQLPoolLinux.query('SELECT count(*) count FROM systemanal;', (err, results, fields) => {
 		if(err){
 			res.status(400).send({error: err.sqlMessage, code: err.code});
 			return;
 		}else{
-			const Employees = results.map(x => new Employee(x));
-			console.log(Employees);
-			res.json([...Employees]);
+			console.log(results)
+			res.json(results[0].count);
 		}
 	});
 });

@@ -57,6 +57,8 @@ import { ProjectService } from './services/project/project.service';
 import { AssignService } from './services/assign/assign.service';
 import { PaymentService } from './services/payment/payment.service';
 import { GraficaComponent } from './components/grafica/grafica.component';
+import { LinuxService } from './services/linux/linux.service';
+import { WindowsService } from './services/windows/windows.service';
 
 @NgModule({
   declarations: [
@@ -117,7 +119,9 @@ import { GraficaComponent } from './components/grafica/grafica.component';
     EmployeesService,
     ProjectService,
     AssignService,
-    PaymentService
+    PaymentService,
+	LinuxService,
+	WindowsService
   ],
   bootstrap: [AppComponent]
 })
