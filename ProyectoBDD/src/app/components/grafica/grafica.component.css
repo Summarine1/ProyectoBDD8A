@@ -1,0 +1,10 @@
+.grafica{
+    background-color: rgb(106, 25, 146);
+    position: relative; 
+    height:50vh; 
+    width:40vw;
+    border-radius: 20px;
+    text-align: center;
+    margin: 20px;
+    
+}

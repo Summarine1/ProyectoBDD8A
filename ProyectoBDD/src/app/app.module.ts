@@ -56,6 +56,7 @@ import { EmployeesService } from './services/employees/employees.service';
 import { ProjectService } from './services/project/project.service';
 import { AssignService } from './services/assign/assign.service';
 import { PaymentService } from './services/payment/payment.service';
+import { GraficaComponent } from './components/grafica/grafica.component';
 
 @NgModule({
   declarations: [
@@ -100,6 +101,7 @@ import { PaymentService } from './services/payment/payment.service';
     CreatePayLinuxComponent,
     UpdatePayLinuxComponent,
     ListPayLinuxComponent,
+    GraficaComponent
   ],
   imports: [
     BrowserModule,
