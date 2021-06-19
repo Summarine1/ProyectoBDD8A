@@ -14,7 +14,7 @@ Router.use('/payment', PaymentCRUD);
 Router.use('/assign', AssignCRUD);
 
 Router.get('/highbudget', (req, res) => {
-	MySQLPoolWindows.query('SELECT * FROM highbudget;', (err, result, fields) => {
+	MySQLPoolWindows.query('SELECT * FROM highbudget ORDER BY budget ASC LIMIT 5;', (err, result, fields) => {
 		if(err){
 			res.status(400).json({error: err.sqlMessage, code: err.code});
 			return;
@@ -27,7 +27,7 @@ Router.get('/highbudget', (req, res) => {
 });
 
 Router.get('/lowbudget', (req, res) => {
-	MySQLPoolWindows.query('SELECT * FROM lowbudget;', (err, result, fields) => {
+	MySQLPoolWindows.query('SELECT * FROM lowbudget ORDER BY budget DESC LIMIT 5;', (err, result, fields) => {
 		if(err){
 			res.status(400).json({error: err.sqlMessage, code: err.code});
 			return;
@@ -40,14 +40,13 @@ Router.get('/lowbudget', (req, res) => {
 });
 
 Router.get('/medbudget', (req, res) => {
-	MySQLPoolWindows.query('SELECT * FROM medbudget;', (err, result, fields) => {
+	MySQLPoolWindows.query('SELECT count(*) count FROM medbudget;', (err, result, fields) => {
 		if(err){
 			res.status(400).json({error: err.sqlMessage, code: err.code});
 			return;
 		}else{
-			const Projects = result.map(x => new Project(x));
-			console.log(Projects);
-			res.send([...Projects]);
+			console.log(result[0].count);
+			res.send({count: result[0].count});
 		}
 	});
 });
@@ -66,14 +65,13 @@ Router.get('/maxdur', (req, res) => {
 });
 
 Router.get('/meddur', (req, res) => {
-	MySQLPoolWindows.query('SELECT * FROM meddur;', (err, result, fields) => {
+	MySQLPoolWindows.query('SELECT count(*) count FROM meddur;', (err, result, fields) => {
 		if(err){
 			res.status(400).json({error: err.sqlMessage, code: err.code});
 			return;
 		}else{
-			const Assigns = result.map(x => new Assign(x));
-			console.log(Assigns);
-			res.send([...Assigns]);
+			console.log(result[0].count);
+			res.send({count: result[0].count});
 		}
 	});
 });

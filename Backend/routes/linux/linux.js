@@ -37,6 +37,24 @@ Router.get('/lesspayed', (req, res) => {
 			res.json([...Titles]);
 		}
 	});
+});
+
+Router.get('/titlesinmiddle', (req, res) => {
+	MySQLPoolLinux.query('select count(a.ename) count, a.title from (select emp.title, emp.ename from emp inner join middlepayed on emp.title = middlepayed.title) as a group by a.title;', (err, results, fields) => {
+		if(err){
+			res.status(400).send({error: err.sqlMessage, code: err.code});
+			return;
+		}else{
+			const Count = results.map(x => {
+				return {
+				title: x.title,
+				count: x.count
+				}
+			});
+			console.log(Count);
+			res.json([...Count]);
+		}
+	});
 })
 
 Router.get('/electeng', (req, res) => {
