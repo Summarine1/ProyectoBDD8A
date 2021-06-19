@@ -39,7 +39,7 @@ import { CreateAsgLinuxComponent } from './components/linux/crud-assign-linux/cr
 import { UpdateAsgLinuxComponent } from './components/linux/crud-assign-linux/update-asg-linux/update-asg-linux.component';
 
 const routes: Routes = [
-  { path: '*', component: CrudComponent },
+  { path: '', component: CrudComponent },
 
   {
     path: 'windows', component: CrudWindowsComponent, children: [
