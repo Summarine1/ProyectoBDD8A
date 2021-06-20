@@ -1,8 +1,7 @@
 .grafica{
     background-color: rgb(237, 231, 240);
-    position: relative; 
-    height:40vh; 
-    width:40vw;
+    height:30vh; 
+    width:30vw;
     border-radius: 20px;
     text-align: center;
     margin: 20px;

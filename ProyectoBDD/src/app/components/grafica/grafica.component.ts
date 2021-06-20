@@ -151,14 +151,18 @@ export class GraficaComponent implements OnInit {
     this.Linux.getTitles().subscribe((data: any[])=>{
      console.log(data)
      //separar los labels y los numeros en dos array
+	const labels = data.map(x => x.label);
+	const counts = data.map(x => x.count);
+	console.log(labels);
+	console.log(counts);
       var myChart4 = new Chart('myChart4', {
         type: 'bar',
         data: {
-          labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+          labels: [...labels],
           datasets: [
             {
-              label: '# of Votes',
-              data: [12, 19, 3, 5, 2, 3],
+              label: '# de empleados por título',
+              data: [...counts],
               backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
                 'rgba(54, 162, 235, 0.2)',
