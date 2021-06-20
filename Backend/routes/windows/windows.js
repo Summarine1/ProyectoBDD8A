@@ -14,9 +14,9 @@ Router.use('/payment', PaymentCRUD);
 Router.use('/assign', AssignCRUD);
 
 Router.get('/budgets', (req, res) => {
-	MySQLPoolWindows.query('SELECT count (*) count FROM highbudget union \
-							SELECT count(*) count FROM medbudget union \
-							SELECT count(*) count FROM lowbudget;', (err, result, fields) => {
+	MySQLPoolWindows.query('SELECT count (*) count, "High" FROM highbudget union \
+							SELECT count(*) count, "Med" FROM medbudget union \
+							SELECT count(*) count, "Low" FROM lowbudget;', (err, result, fields) => {
 		if(err){
 			res.status(400).json({error: err.sqlMessage, code: err.code});
 			return;
@@ -29,9 +29,9 @@ Router.get('/budgets', (req, res) => {
 });
 
 Router.get('/durations', (req, res) => {
-	MySQLPoolWindows.query('SELECT count(*) count FROM maxdur union \
-							SELECT count(*) count FROM meddur union \
-							SELECT count(*) count FROM mindur;', (err, result, fields) => {
+	MySQLPoolWindows.query('SELECT count(*) count, "Max" FROM maxdur union \
+							SELECT count(*) count, "Med" FROM meddur union \
+							SELECT count(*) count, "Min" FROM mindur;', (err, result, fields) => {
 		if(err){
 			res.status(400).json({error: err.sqlMessage, code: err.code});
 			return;
