@@ -60,6 +60,7 @@ import { GraficaComponent } from './components/grafica/grafica.component';
 import { LinuxService } from './services/linux/linux.service';
 import { WindowsService } from './services/windows/windows.service';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -103,7 +104,8 @@ import { WindowsService } from './services/windows/windows.service';
     CreatePayLinuxComponent,
     UpdatePayLinuxComponent,
     ListPayLinuxComponent,
-    GraficaComponent
+    GraficaComponent,
+  
   ],
   imports: [
     BrowserModule,
