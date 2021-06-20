@@ -13,74 +13,32 @@ Router.use('/project', ProjectCRUD);
 Router.use('/payment', PaymentCRUD);
 Router.use('/assign', AssignCRUD);
 
-Router.get('/highbudget', (req, res) => {
-	MySQLPoolWindows.query('SELECT count (*) count FROM highbudget;', (err, result, fields) => {
+Router.get('/budgets', (req, res) => {
+	MySQLPoolWindows.query('SELECT count (*) count FROM highbudget union \
+							SELECT count(*) count FROM medbudget union \
+							SELECT count(*) count FROM lowbudget;', (err, result, fields) => {
 		if(err){
 			res.status(400).json({error: err.sqlMessage, code: err.code});
 			return;
 		}else{
 			console.log(result);
-			res.send(result[0].count);
+			const Budgets = result.map(x => x.count);
+			res.send(Budgets);
 		}
 	});
 });
 
-Router.get('/lowbudget', (req, res) => {
-	MySQLPoolWindows.query('SELECT count(*) count FROM lowbudget;', (err, result, fields) => {
+Router.get('/durations', (req, res) => {
+	MySQLPoolWindows.query('SELECT count(*) count FROM maxdur union \
+							SELECT count(*) count FROM meddur union \
+							SELECT count(*) count FROM mindur;', (err, result, fields) => {
 		if(err){
 			res.status(400).json({error: err.sqlMessage, code: err.code});
 			return;
 		}else{
 			console.log(result);
-			res.send(result[0].count);
-		}
-	});
-});
-
-Router.get('/medbudget', (req, res) => {
-	MySQLPoolWindows.query('SELECT count(*) count FROM medbudget;', (err, result, fields) => {
-		if(err){
-			res.status(400).json({error: err.sqlMessage, code: err.code});
-			return;
-		}else{
-			console.log(result);
-			res.send(result[0].count);
-		}
-	});
-});
-
-Router.get('/maxdur', (req, res) => {
-	MySQLPoolWindows.query('SELECT count(*) count FROM maxdur;', (err, result, fields) => {
-		if(err){
-			res.status(400).json({error: err.sqlMessage, code: err.code});
-			return;
-		}else{
-			console.log(result);
-			res.send(result[0].count);
-		}
-	});
-});
-
-Router.get('/meddur', (req, res) => {
-	MySQLPoolWindows.query('SELECT count(*) count FROM meddur;', (err, result, fields) => {
-		if(err){
-			res.status(400).json({error: err.sqlMessage, code: err.code});
-			return;
-		}else{
-			console.log(result[0].count);
-			res.send({count: result[0].count});
-		}
-	});
-});
-
-Router.get('/mindur', (req, res) => {
-	MySQLPoolWindows.query('SELECT count(*) count FROM mindur;', (err, result, fields) => {
-		if(err){
-			res.status(400).json({error: err.sqlMessage, code: err.code});
-			return;
-		}else{
-			console.log(result)
-			res.send(result[0].count);
+			const Durations = result.map(x => x.count);
+			res.send(Durations);
 		}
 	});
 });
